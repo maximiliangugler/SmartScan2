@@ -1,4 +1,4 @@
-package at.inthebox21.smartscan2;
+package at.inthebox21.smartscan2.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import at.inthebox21.smartscan2.R;
 
 public class StoreSelectorActivity extends AppCompatActivity {
 

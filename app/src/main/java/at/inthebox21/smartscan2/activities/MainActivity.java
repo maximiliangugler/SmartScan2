@@ -1,4 +1,4 @@
-package at.inthebox21.smartscan2;
+package at.inthebox21.smartscan2.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,11 +6,13 @@ import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Arrays;
 import java.util.HashMap;
+
+import at.inthebox21.smartscan2.R;
+import at.inthebox21.smartscan2.database.DatabaseHelper;
+import at.inthebox21.smartscan2.models.Product;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private static boolean isStoreSelected = false;
     private static int storeId;
     private static HashMap<Integer, String> storeNames;
+    private DatabaseHelper database;
 
 
     @Override
@@ -25,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        // Initialize database
+        database = new DatabaseHelper(this);
+        database.getWritableDatabase();
 
         // Check for incoming intent from store selection activity
         Intent returnFromStoreSelection = getIntent();
